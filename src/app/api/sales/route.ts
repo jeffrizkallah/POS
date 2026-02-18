@@ -3,6 +3,8 @@ import { db } from "@/db";
 import { sales, saleItems, products } from "@/db/schema";
 import { eq, sql } from "drizzle-orm";
 import { VAT_RATE } from "@/lib/constants";
+
+export const dynamic = "force-dynamic";
 import type { PaymentMethod } from "@/types";
 
 function generateReceiptNumber(): string {

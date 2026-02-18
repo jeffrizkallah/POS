@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { seedDatabase } from "@/db/seed";
 
+export const dynamic = "force-dynamic";
+
 export async function POST() {
   if (process.env.NODE_ENV === "production") {
     return NextResponse.json(
