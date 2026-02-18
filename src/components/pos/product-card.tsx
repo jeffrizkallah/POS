@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { formatCurrency } from "@/lib/format";
 import type { Product } from "@/types";
+import Image from "next/image";
 import { Coffee, Croissant, Sandwich, Cake, GlassWater, Package } from "lucide-react";
 
 const categoryIconMap: Record<string, React.ElementType> = {
@@ -33,12 +34,14 @@ export function ProductCard({ product, onAdd, cartQuantity }: ProductCardProps) 
       )}
     >
       {/* Thumbnail */}
-      <div className="w-full aspect-square rounded-lg bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center mb-2.5 overflow-hidden">
+      <div className="relative w-full aspect-square rounded-lg bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center mb-2.5 overflow-hidden">
         {product.imageUrl ? (
-          <img
+          <Image
             src={product.imageUrl}
             alt={product.name}
-            className="w-full h-full object-cover rounded-lg"
+            fill
+            className="object-cover rounded-lg"
+            sizes="(max-width: 768px) 33vw, 20vw"
           />
         ) : (
           <Icon className="h-8 w-8 text-primary/40" />
